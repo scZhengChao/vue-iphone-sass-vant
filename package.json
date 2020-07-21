@@ -3,13 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --mode development",
+    "buildUit": "vue-cli-service build --mode uit",
+    "buildSip": "vue-cli-service build --mode sip",
+    "build": "vue-cli-service build --mode production",
+    "analyz": "vue-cli-service build --mode production --analyz",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "crypto-js": "^4.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "node-sass": "^4.14.1",
+    "run-success-icon": "^1.0.9",
+    "sass-loader": "^9.0.2",
+    "svg-sprite-loader": "^5.0.0",
+    "vant": "^2.9.3",
+    "vconsole": "^3.3.4",
+    "vue": "^2.6.11",
+    "vue-photo-preview": "^1.1.3",
+    "vue-router": "^3.3.4",
+    "vue-touch-events": "^1.0.3",
+    "vuex": "^3.5.1",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "weixin-jsapi": "^1.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
