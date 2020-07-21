@@ -21,10 +21,10 @@ module.exports = {
     css: {
         requireModuleExtension: true,
         loaderOptions: {
-         sass: {
-          // 向全局sass样式传入共享的全局变量
-          additionalData: `@import "./src/assets/css/base.scss";`
-         }
+            sass: {
+                // 向全局sass样式传入共享的全局变量
+                additionalData: `@import "./src/assets/css/base.scss";`
+            }
         }
     },
     devServer:{
@@ -120,7 +120,6 @@ module.exports = {
 			'vuex': "Vuex",
             'axios': 'axios',
             'crypto-js':'CryptoJS',
-            'vant':'vant'
 		}
     }
 }

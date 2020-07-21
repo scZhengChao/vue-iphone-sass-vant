@@ -84,6 +84,7 @@ export default {
 </script>
 <style lang='scss' scoped>
     @include borderCreator("box", "", solid, #979797)
+    
     .box{
         width: 100%;
         color: $mainColor;   
