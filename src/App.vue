@@ -39,7 +39,7 @@ export default {
 //    this.$toast(screen.availWidth+'screen')
 //    this.$toast(document.documentElement.getClientRects()[0].width,'documentElement')
 
-    console.log(CryptoJs)
+    // console.log(CryptoJs)
   },
   mounted() {
     // console.log(this.$router)

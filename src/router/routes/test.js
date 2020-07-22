@@ -33,5 +33,10 @@ export default [
         path: '/map',
         name: 'map',
         component: ()=>import('@/components/map')
+    },
+    {
+        path: '/sprite',
+        name: 'sprite',
+        component: ()=>import('@/components/sprites')
     }
 ]

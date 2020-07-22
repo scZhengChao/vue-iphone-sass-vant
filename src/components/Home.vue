@@ -78,7 +78,7 @@ export default {
         }
     },
     created(){
-      
+      console.log(1111)
     }
 }
 </script>
@@ -88,7 +88,7 @@ export default {
     .box{
         width: 100%;
         color: $mainColor;   
-        @include fz(16);
+        @include fz(16px);
         .test{
             width:100%;
             height:2rem;

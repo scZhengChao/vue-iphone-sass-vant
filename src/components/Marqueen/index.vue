@@ -10,8 +10,8 @@
 </template>
 
 <script>
-    import jsmarqueen from './marqueen1.vue'
-    import cssmarqueen from './marqueen2.vue'
+const  jsmarqueen = ()=> import('./marqueen1.vue')
+const  cssmarqueen = ()=> import('./marqueen2.vue')
 export default {
     name:'Marqueen',
     data(){return{

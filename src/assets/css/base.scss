@@ -58,9 +58,6 @@
 }
 
 
-$mainColor:#77b59c;
-
-
 @mixin font-dpr($font-size) {  
     font-size: $font-size;  
     [data-dpr="2"] & {    
@@ -99,3 +96,6 @@ $mainColor:#77b59c;
     }
     }
 }
+
+$mainColor:#77b59c;
+$background-color: #f8f8f8;

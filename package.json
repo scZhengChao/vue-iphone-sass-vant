@@ -8,17 +8,22 @@
     "buildSip": "vue-cli-service build --mode sip",
     "build": "vue-cli-service build --mode production",
     "analyz": "vue-cli-service build --mode production --analyz",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dll": "webpack -p --progress --config ./webpack.dll.config.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "crypto-js": "^4.0.0",
+    "echarts": "^4.8.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "run-success-icon": "^1.0.9",
     "sass-loader": "^9.0.2",
     "svg-sprite-loader": "^5.0.0",
+    "terser-webpack-plugin": "^3.0.7",
     "vant": "^2.9.3",
     "vconsole": "^3.3.4",
     "vue": "^2.6.11",
@@ -26,17 +31,22 @@
     "vue-router": "^3.3.4",
     "vue-touch-events": "^1.0.3",
     "vuex": "^3.5.1",
+    "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-spritesmith": "^1.1.0",
     "weixin-jsapi": "^1.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
+    "add-asset-html-webpack-plugin": "^3.1.3",
     "babel-eslint": "^10.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack-cli": "^3.3.12"
   },
   "eslintConfig": {
     "root": true,

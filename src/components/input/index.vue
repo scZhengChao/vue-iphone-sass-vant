@@ -19,8 +19,8 @@ export default {
     },
     methods: {
         scrollView(){
-            // document.querySelector('.inp').scrollIntoView(false)
-            document.body.scrollIntoView(false)
+            document.querySelector('.inp').scrollIntoView(false)
+            // document.body.scrollIntoView(false)
         },
         getHeight(evt){
             console.log('focus-------------------')

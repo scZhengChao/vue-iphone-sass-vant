@@ -34,7 +34,9 @@ new VConsole()
 //     // error：Error对象（对象）
 //     console.log('捕获到异常：',{message, source, lineno, colno, error});
 // }
-
+// import  $ from 'jquery'
+// console.dir($)
+// import echarts from 'echarts'
 
 
 new Vue({
