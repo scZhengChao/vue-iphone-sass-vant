@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### issues
+polyfill 不会编译node_modules 下的依赖包  按照配置 并没有生效 例如 vue-touch-events
