@@ -50,6 +50,7 @@ export default {
         }
         
       },2000)
+      eval("console.log('eval')")
   },
   methods: {
     sign(){

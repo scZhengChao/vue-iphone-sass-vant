@@ -2,7 +2,7 @@
 <div class="box">
     home
     <van-button type="info">主要按钮</van-button>
-    <div class="test border-box a" 
+    <!-- <div class="test border-box a" 
         v-touch.preventDefault 
         @tap="tapCb" 
         @longtap="longTapCb" 
@@ -18,10 +18,10 @@
         @touchcancel ='touchcancel'
     >
        events
-    </div>
-    <div class="test border-box b" v-touch.preventDefault.drag @drag="dragCb">
+    </div> -->
+    <!-- <div class="test border-box b" v-touch.preventDefault.drag @drag="dragCb">
         drag
-    </div>
+    </div> -->
     <van-icon name="phone" @click='phone'/>
     <svg-icon icon-class="camera" class-name="camera"></svg-icon>
 </div>

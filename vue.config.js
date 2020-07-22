@@ -92,7 +92,10 @@ if(isProd){
 
 module.exports = {
     lintOnSave:false, 
-    publicPath: resolve('./dist'),
+    publicPath: '/' || resolve('./dist'),
+    transpileDependencies: [
+        'vue-touch-events'
+    ],
     productionSourceMap:  process.env.NODE_ENV === 'production' ? false : true, // 关闭生产环境的sourcemap
     css: {
         requireModuleExtension: true,

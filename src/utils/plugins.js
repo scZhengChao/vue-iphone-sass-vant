@@ -10,7 +10,6 @@ import {
     Divider
 } from 'vant';
 
-import Touch from 'vue-touch-events'
 import svgPlugin from '@/assets/icons/index.js'
 
 export default {
@@ -26,7 +25,7 @@ export default {
         Vue.use(Divider ); 
 
         
-        Vue.use(Touch)
+   
         Vue.use(svgPlugin)
     }
 }
