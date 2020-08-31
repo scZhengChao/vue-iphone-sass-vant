@@ -15,8 +15,8 @@ Vue.config.productionTip = false
 import router from './router'
 import store from './store'
 
-import VConsole from 'vconsole'
-new VConsole()
+// import VConsole from 'vconsole'
+// new VConsole()
 // Vue.config.errorHandler = function(err, vm, info) {
 //     console.log(`Error: ${err.toString()}\nInfo: ${info}`);
 // };
