@@ -7,7 +7,8 @@ import {
     Cell,
     Icon ,
     Toast,
-    Divider
+    Divider,
+    Uploader 
 } from 'vant';
 
 import svgPlugin from '@/assets/icons/index.js'
@@ -24,7 +25,7 @@ export default {
         Vue.use(Toast ); 
         Vue.use(Divider ); 
 
-        
+        Vue.use(Uploader ); 
    
         Vue.use(svgPlugin)
     }

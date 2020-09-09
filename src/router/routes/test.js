@@ -38,5 +38,10 @@ export default [
         path: '/sprite',
         name: 'sprite',
         component: ()=>import('@/components/sprites')
+    },
+    {
+        path: '/uploadVideo',
+        name: 'uploadVideo',
+        component: ()=>import('@/components/uploadVideo')
     }
 ]

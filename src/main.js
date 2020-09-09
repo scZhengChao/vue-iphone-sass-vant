@@ -11,20 +11,35 @@ import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 Vue.use(preview)
 
+
+
 Vue.config.productionTip = false
 import router from './router'
 import store from './store'
 
-// import VConsole from 'vconsole'
-// new VConsole()
+import VConsole from 'vconsole'
+new VConsole()
+
+import VideoPlayer from 'vue-video-player'
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
+Vue.use(VideoPlayer)
+
+
+
 // Vue.config.errorHandler = function(err, vm, info) {
 //     console.log(`Error: ${err.toString()}\nInfo: ${info}`);
 // };
 
 
+
+
+
 // Vue.config.warnHandler = function(msg, vm, trace) {
 //  console.log(`Warn: ${msg}\nTrace: ${trace}`);
 // };
+
+
 
 
 // window.onerror = function(message, source, lineno, colno, error) {
@@ -38,6 +53,7 @@ import store from './store'
 // import  $ from 'jquery'
 // console.dir($)
 // import echarts from 'echarts'
+
 
 
 new Vue({
