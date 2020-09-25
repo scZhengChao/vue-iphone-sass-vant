@@ -7,26 +7,41 @@
             :options="playerOptions"
         ></video-player> -->
 
-        
+        <!-- src="http://vjs.zencdn.net/v/oceans.mp4"  -->
+            <div class="controls">
 
+            </div>
         <video 
-            src="http://vjs.zencdn.net/v/oceans.mp4" 
+            src="http://vjs.zencdn.net/v/oceans.mp4"
             muted  
+            class="myVideo"
             :poster="poster"
             preload="auto"
+            webkit-playsinline="true" 
+            x-webkit-airplay="allow" 
+            playsinline="true"
+            x5-video-player-type="h5"
+            x5-video-orientation="protraint"
+            x5-video-player-fullscreen="true"
+            x5-playsinline
             style="object-fit:contain;border: 1px solid black;" 
             @click='fullScreen' 
             ref="myvideo"
             width="400px"
             height="400px"
+            loop
+            autoplay
             crossOrigin='*'
         >
             你的浏览器不支持video
         </video>
+        <!-- <video id='dplayer' style="width: 100px;height: 200px;border: 1px solid black;"></video> -->
     </div>
 </template>
 
 <script>
+import DPlayer from 'dplayer';
+
 
 export default {
     name:'myuploadVideo',
@@ -59,36 +74,75 @@ export default {
             }
         },
         controls:false,
-        poster:null
+        poster:null,
+        Doptions:{
+            
+        }
     }},
     mounted() {
-        this.$refs.myvideo.addEventListener('loadeddata',e=>{
-            var canvas = document.createElement('canvas')
-            canvas.width = this.$refs.myvideo.width
-            canvas.height = this.$refs.myvideo.height
-            canvas.getContext('2d').drawImage(this.$refs.myvideo,0,0,canvas.width,canvas.height)
-            var dataURL = canvas.toDataURL("image/png")
-            this.poster = dataURL
-        })
-
+        // this.$refs.myvideo.addEventListener('loadeddata',e=>{
+        //     var canvas = document.createElement('canvas')
+        //     canvas.width = this.$refs.myvideo.width
+        //     canvas.height = this.$refs.myvideo.height
+        //     canvas.getContext('2d').drawImage(this.$refs.myvideo,0,0,canvas.width,canvas.height)
+        //     var dataURL = canvas.toDataURL("image/png")
+        //     this.poster = dataURL
+        // })
+        // const dp = new DPlayer({
+        //     container: document.getElementById('dplayer'),
+        //     autoplay: true,
+        //     theme: '#FADFA3',
+        //     loop: true,
+        //     lang: 'zh-cn',
+        //     screenshot: true,
+        //     preload: 'auto',
+        //     volume: 0.7,
+        //     mutex: true,
+        //     type: 'auto',
+        //     video: {
+        //         url: 'http://vjs.zencdn.net/v/oceans.mp4',
+        //     },
+        // });
     },
     methods: {
         myafterRead(file) {
            
            
         },
-        fullScreen(){
-            this.$refs.myvideo.requestFullscreen()
-            this.$refs.myvideo.muted = true
-            this.$refs.myvideo.loop = true
-            this.$refs.myvideo.play()
+        fullScreen(e){
+            console.log(e.target)
+            // this.$refs.myvideo.requestFullscreen()
+            // this.$refs.myvideo.muted = true
+            // this.$refs.myvideo.loop = true
+            // this.$refs.myvideo.play()
+            e.target.requestFullscreen()
+            // this.$refs.myvideo.muted = true
+            // this.$refs.myvideo.loop = true
+            e.target.play()
       
         }
     },
 }
 </script>
-<style lang='scss' scoped>
+<style lang='scss' >
+.video-player {
+    width: 100px;
+    height: 100px;
+}
+video::-webkit-media-controls-fullscreen-button{ display: none; }
 
+.myVideo::-webkit-media-controls-enclosure{
+    display: none!important;
+}
+.myVideo::-webkit-media-controls {
+    display: none!important;
+}
+.myVideo::-webkit-media-controls-panel{
+    display: none!important;
+}
+.myVideo::-webkit-media-controls-fullscreen-button {
+    display: none!important;
+}
 </style>
 
   

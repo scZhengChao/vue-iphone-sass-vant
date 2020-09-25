@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --mode development",
+    "dev": "vue-cli-service serve --mode development",
     "buildUit": "vue-cli-service build --mode uit",
     "buildSip": "vue-cli-service build --mode sip",
     "build": "vue-cli-service build --mode production",
@@ -17,6 +17,7 @@
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
     "crypto-js": "^4.0.0",
+    "dplayer": "^1.26.0",
     "echarts": "^4.8.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "hard-source-webpack-plugin": "^0.13.1",
