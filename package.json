@@ -39,7 +39,8 @@
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-spritesmith": "^1.1.0",
-    "weixin-jsapi": "^1.1.0"
+    "weixin-jsapi": "^1.1.0",
+    "xgplayer": "^2.14.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
