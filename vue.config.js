@@ -126,98 +126,111 @@ module.exports = {
         // } 
     },
     chainWebpack:config=>{
-        config.module.rules.delete("svg")
-        config.module.rule('svg-sprite-loader')
-        .test(/\.svg$/).include.add(resolve('src/assets/icons')) //处理svg目录
-        .end().use('svg-sprite-loader').loader('svg-sprite-loader')
-        .options({
-            symbolId: 'icon-[name]'
-        })
-        const fileRule = config.module.rule('file')
-        fileRule.uses.clear()
-        fileRule
-        .test(/\.svg$/)
-        .exclude.add(resolve('/src/assets/icons'))
-        .end()
-        .use('file-loader')
-        .loader('file-loader')
-        config.resolve.alias
-        .set('@', resolve('src'))
-        .set('assets', resolve('src/assets'))
-        .set('api', resolve('src/api'))
-        .set('views', resolve('src/pages'))
-        .set('components', resolve('src/components'))
-        config.optimization.splitChunks({
-            chunks: 'all',
-            minSize: 30000,   
-            minChunks: 1,           
-            maxAsyncRequests: 5,    
-            maxInitialRequests: 3,  
-            automaticNameDelimiter: '~', 
-            name: true,                 
-            cacheGroups: {
-              commons: {
-                name: 'chunk-commons',
-                test: resolve('src/components'),
-                minChunks: 2, 
-                priority: 5, 
-                reuseExistingChunk: true
-              },
-              node_vendors: {
-                name: 'chunk-libs',
-                chunks: 'initial', // 只打包初始时依赖的第三方
-                test: /[\\/]node_modules[\\/]/,
-                priority: 10
-              },
-              vantUI: {
-                name: 'chunk-vantUI',
-                priority: 20, 
-                test: /[\\/]node_modules[\\/]_?vant(.*)/
-              },
-              default: {
-                minChunks: 2,
-                priority: -20,
-                reuseExistingChunk: true
-              }
-            }
-        })
-        config.optimization.runtimeChunk('single')
+
+        
+            const svgRule = config.module.rule('svg')
+    
+            // 清除已有的所有 loader。
+            // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
+            svgRule.uses.clear()
+    
+            // 添加要替换的 loader
+            svgRule.use('raw-loader').loader('raw-loader')
+           
+        
+
+        // config.module.rules.delete("svg")
+        // config.module.rule('svg-sprite-loader')
+        // .test(/\.svg$/).include.add(resolve('src/assets/icons')) //处理svg目录
+        // .end().use('svg-sprite-loader').loader('svg-sprite-loader')
+        // .options({
+        //     symbolId: 'icon-[name]'
+        // })
+        // const fileRule = config.module.rule('file')
+        // fileRule.uses.clear()
+        // fileRule
+        // .test(/\.svg$/)
+        // .exclude.add(resolve('/src/assets/icons'))
+        // .end()
+        // .use('file-loader')
+        // .loader('file-loader')
+        // config.resolve.alias
+        // .set('@', resolve('src'))
+        // .set('assets', resolve('src/assets'))
+        // .set('api', resolve('src/api'))
+        // .set('views', resolve('src/pages'))
+        // .set('components', resolve('src/components'))
+        // config.optimization.splitChunks({
+        //     chunks: 'all',
+        //     minSize: 30000,   
+        //     minChunks: 1,           
+        //     maxAsyncRequests: 5,    
+        //     maxInitialRequests: 3,  
+        //     automaticNameDelimiter: '~', 
+        //     name: true,                 
+        //     cacheGroups: {
+        //       commons: {
+        //         name: 'chunk-commons',
+        //         test: resolve('src/components'),
+        //         minChunks: 2, 
+        //         priority: 5, 
+        //         reuseExistingChunk: true
+        //       },
+        //       node_vendors: {
+        //         name: 'chunk-libs',
+        //         chunks: 'initial', // 只打包初始时依赖的第三方
+        //         test: /[\\/]node_modules[\\/]/,
+        //         priority: 10
+        //       },
+        //       vantUI: {
+        //         name: 'chunk-vantUI',
+        //         priority: 20, 
+        //         test: /[\\/]node_modules[\\/]_?vant(.*)/
+        //       },
+        //       default: {
+        //         minChunks: 2,
+        //         priority: -20,
+        //         reuseExistingChunk: true
+        //       }
+        //     }
+        // })
+        // config.optimization.runtimeChunk('single')
     },
-    configureWebpack: {
-        plugins: [
-            ...configPlugin,
-            new FriendlyErrorsWebpackPlugin({
-                 compilationSuccessInfo:{
-                     messages:[initRunIcon()],
-                 },
-            }),
-            new HardSourceWebpackPlugin(),
-			new HardSourceWebpackPlugin.ExcludeModulePlugin([
-			  {
-			    test: /mini-css-extract-plugin[\\/]dist[\\/]loader/
-			  }
-			]),
-            // new webpack.optimize.ModuleConcatenationPlugin()
+    // configureWebpack: {
+    //     plugins: [
+    //         ...configPlugin,
+    //         new FriendlyErrorsWebpackPlugin({
+    //              compilationSuccessInfo:{
+    //                  messages:[initRunIcon()],
+    //              },
+    //         }),
+    //         new HardSourceWebpackPlugin(),
+	// 		new HardSourceWebpackPlugin.ExcludeModulePlugin([
+	// 		  {
+	// 		    test: /mini-css-extract-plugin[\\/]dist[\\/]loader/
+	// 		  }
+	// 		]),
+    //         // new webpack.optimize.ModuleConcatenationPlugin()
             
-        ],
-        optimization: {
-            minimizer: [
-                new TerserPlugin({
-                    sourceMap: false,
-                    terserOptions: {
-                    compress: {
-                        drop_console: true
-                      }
-                    }
-                })
-            ]
-        },
-        // externals: {
-		// 	'vue': 'Vue',
-		// 	"vue-router": "VueRouter",
-		// 	'vuex': "Vuex",
-        //     'axios': 'axios',
-        //     'crypto-js':'CryptoJS',
-		// }
-    }
+    //     ],
+    //     optimization: {
+    //         minimizer: [
+    //             new TerserPlugin({
+    //                 sourceMap: false,
+    //                 terserOptions: {
+    //                 compress: {
+    //                     drop_console: true
+    //                   }
+    //                 }
+    //             })
+    //         ]
+    //     },
+    //     // externals: {
+	// 	// 	'vue': 'Vue',
+	// 	// 	"vue-router": "VueRouter",
+	// 	// 	'vuex': "Vuex",
+    //     //     'axios': 'axios',
+    //     //     'crypto-js':'CryptoJS',
+	// 	// }
+    // }
 }

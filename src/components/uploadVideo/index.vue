@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <van-uploader v-model="fileList"  :max-count="10" accept='video/*' />
+    <div class="box">
+        <!-- <van-uploader v-model="fileList"  :max-count="10" accept='video/*' /> -->
         <!-- <video-player  class="video-player vjs-custom-skin"
             ref="videoPlayer"
             :playsinline="true"
@@ -8,41 +8,61 @@
         ></video-player> -->
 
         <!-- src="http://vjs.zencdn.net/v/oceans.mp4"  -->
-            <div class="controls">
-
-            </div>
-        <video 
-            src="http://vjs.zencdn.net/v/oceans.mp4"
-            muted  
-            class="myVideo"
-            :poster="poster"
-            preload="auto"
+            <!-- <div class="controls">
+                controls
+            </div> -->
+            <!-- x5-video-player-type="h5"
+            x5-playsinline
             webkit-playsinline="true" 
             x-webkit-airplay="allow" 
-            playsinline="true"
-            x5-video-player-type="h5"
-            x5-video-orientation="protraint"
+                   x5-video-orientation="protraint"
             x5-video-player-fullscreen="true"
-            x5-playsinline
-            style="object-fit:contain;border: 1px solid black;" 
-            @click='fullScreen' 
-            ref="myvideo"
-            width="400px"
-            height="400px"
-            loop
-            autoplay
-            crossOrigin='*'
-        >
-            你的浏览器不支持video
-        </video>
-        <!-- <video id='dplayer' style="width: 100px;height: 200px;border: 1px solid black;"></video> -->
+            playsinline="true" -->
+
+            <div  class="videoBox" >
+                <div class="videoBox_controls" @click='videoBoxfullScreen'>
+                    这是我的控制样式；可以随心所欲了；哈哈哈
+                </div>
+                <video 
+                    src="http://vjs.zencdn.net/v/oceans.mp4"
+                    muted  
+                    class="myVideo"
+                    :poster="poster"
+                    preload="auto"
+            
+                    x5-playsinline="" 
+                    playsinline=""
+                        controls
+                    
+                    x-webkit-airplay="allow"
+                    webkit-playsinline=""
+                    x5-video-player-fullscreen="true"
+                    x5-video-player-type="h5"
+                    style="object-fit:contain;border: 1px solid black;" 
+                    @click='fullScreen' 
+                    ref="myvideo"
+                    width="400px"
+                    height="400px"
+                    loop
+                    autoplay
+                    crossOrigin='*'
+                >
+                    你的浏览器不支持video
+                </video>
+            </div>
+        
+      
+    
+        <!-- <div id="mse">
+            <div>asfasgag</div>
+        </div> -->
     </div>
 </template>
 
 <script>
-import DPlayer from 'dplayer';
-
-
+// import DPlayer from 'dplayer';
+// import Player from 'xgplayer';
+// import '../../custom/.xgplayer/skin'
 export default {
     name:'myuploadVideo',
     data(){return{
@@ -103,11 +123,27 @@ export default {
         //         url: 'http://vjs.zencdn.net/v/oceans.mp4',
         //     },
         // });
+        // let player = new Player({
+        //     id: 'mse',
+        //     url: 'http://vjs.zencdn.net/v/oceans.mp4',
+        //     width: 200,
+        //     height: 200,
+        // });
     },
     methods: {
         myafterRead(file) {
            
            
+        },
+        videoBoxfullScreen(){
+            let videoBox = document.querySelector('.videoBox')
+            if (videoBox.requestFullscreen) {
+                videoBox .requestFullscreen();
+            } else if (videoBox .mozRequestFullScreen) {
+                videoBox .mozRequestFullScreen();
+            } else if (videoBox .webkitRequestFullScreen) {
+                videoBox .webkitRequestFullScreen();
+            }
         },
         fullScreen(e){
             console.log(e.target)
@@ -115,9 +151,10 @@ export default {
             // this.$refs.myvideo.muted = true
             // this.$refs.myvideo.loop = true
             // this.$refs.myvideo.play()
-            e.target.requestFullscreen()
+            // e.target.requestFullscreen()
             // this.$refs.myvideo.muted = true
             // this.$refs.myvideo.loop = true
+            
             e.target.play()
       
         }
@@ -125,11 +162,56 @@ export default {
 }
 </script>
 <style lang='scss' >
+#mse{
+    width: 100px;
+    height: 100px;
+}
+
+
 .video-player {
     width: 100px;
     height: 100px;
 }
-video::-webkit-media-controls-fullscreen-button{ display: none; }
+.box{
+    position: relative;
+  
+
+}
+.videoBox_controls{
+    position: 'absolute';
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+.videoBox{
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+.myVideo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.controls{
+    position: absolute;
+    top: 0;
+    color: orange;
+    background: white;
+    z-index: 9999999999;
+    top: 20px;
+}
+
+video::-webkit-media-controls-fullscreen-button{ 
+    display: none; 
+}
 
 .myVideo::-webkit-media-controls-enclosure{
     display: none!important;
