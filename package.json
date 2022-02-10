@@ -22,7 +22,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "jquery": "^3.5.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "raw-loader": "^4.0.2",
     "run-success-icon": "^1.0.9",
     "sass-loader": "^9.0.2",
